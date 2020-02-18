@@ -1,0 +1,86 @@
+#playa {
+	 background: linear-gradient(red 10%, green 85%, blue 90%);
+}
+
+.r {
+	padding: 0px;
+	margin: 0px;
+	transform: scale(3,1);
+
+}
+.max {
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	bottom:	20px;
+
+}
+.r-max-font-div {
+	margin: 0px;*/
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	color: rgba(0,0,137,0.75);
+	transform: rotate(-45deg);
+	position: absolute; 
+	left: 200px;
+	top: 100px;
+
+}
+.r-max {
+	stroke-width: 1px;
+	stroke: black;
+	fill: linear-gradient(to right, red , yellow);
+}
+
+.line{
+	stroke: black;
+	stroke-dasharray: 5,5;
+}
+
+.geometry {
+	margin: 20px;
+}
+
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+ 
+}
+
+P {
+	
+	margin: 0px;
+}
+.subscript {
+	font-size: 13px;
+	font-weight: normal;
+	position: relative;
+	top: 5px;
+	right: 3px;
+}
+ h3, p {
+ 	display: inline;
+ }
+.d5 {
+	position: relative;
+	bottom: 230px;
+	left: 60px;
+}
+
+.r-max-div {
+	background-color: green;
+	width: 100px;
+	height: 100px;
+}
+
+
+.d3-lamda {
+	margin-left: 100px;
+}
+
+
+
+
+
