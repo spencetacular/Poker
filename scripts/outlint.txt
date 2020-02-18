@@ -1,0 +1,25 @@
+Can it play againt it's self like alpha go?
+Two or more players at same table?
+
+
+Game
+    Round
+    GetNumPlayers
+        player {chips, folded, isDealer, cards[]
+    BetBlinds(players)
+    DealFlop(players)
+        Bets
+            check bet raise
+            fold
+    DealTurn(Players)
+        Bets
+    DealRiver(Players)
+        Bets
+    DetermineWinner
+        Award chips
+        clear player cards
+        clear community cards
+        shuffle deck
+        rotate dealer
+
+    

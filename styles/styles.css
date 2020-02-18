@@ -1,86 +1,67 @@
-#playa {
-	 background: linear-gradient(red 10%, green 85%, blue 90%);
+
+.container {
+	padding: 50px;
+	background-color: black;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 800px;
+	height: 400px;
+	margin-left: -400px;
+	margin-top: -200px;
 }
 
-.r {
-	padding: 0px;
-	margin: 0px;
-	transform: scale(3,1);
+.table {
+	background-color: #005000;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
 
 }
-.max {
-	padding: 0px;
-	margin: 0px;
-	position: relative;
-	bottom:	20px;
+
+.card {
+	display: inline-block;
+	padding: 2px;
+	background-color: white;
+	/* height: 20%; */
+	/* width: 7%; */
+	width: 60px;
+	height: 80px;
+	border-radius: 7%;
+	/* display: inline; */
 
 }
-.r-max-font-div {
-	margin: 0px;*/
-	width: 100px;
-	height: 100px;
-	text-align: center;
-	color: rgba(0,0,137,0.75);
-	transform: rotate(-45deg);
-	position: absolute; 
-	left: 200px;
-	top: 100px;
 
-}
-.r-max {
-	stroke-width: 1px;
-	stroke: black;
-	fill: linear-gradient(to right, red , yellow);
+.player-cards-container {
+
+	background: pink;
+	width: 132px;
+	position: absolute;
+	left: 50%;
+	top: 80%;
+	/* width: 800px; */
+	/* height: 400px; */
+	margin-left: -66px;
+	/* margin-top: -200px; */
 }
 
-.line{
-	stroke: black;
-	stroke-dasharray: 5,5;
+#player0-cards {
+	left: 50%;
+	top: 80%;
+	margin-left: -66px;
 }
 
-.geometry {
-	margin: 20px;
+#player1-cards {
+	left: 28%;
+    top: 77%;
 }
 
-
-.flex-container {
-    display: -webkit-flex;
-    display: flex;
- 
+#player2-cards {
+	left: 11%;
+    top: 62%;
 }
 
-P {
-	
-	margin: 0px;
+#player3-cards {
+	left: 11%;
+    top: 25%;
 }
-.subscript {
-	font-size: 13px;
-	font-weight: normal;
-	position: relative;
-	top: 5px;
-	right: 3px;
-}
- h3, p {
- 	display: inline;
- }
-.d5 {
-	position: relative;
-	bottom: 230px;
-	left: 60px;
-}
-
-.r-max-div {
-	background-color: green;
-	width: 100px;
-	height: 100px;
-}
-
-
-.d3-lamda {
-	margin-left: 100px;
-}
-
-
-
-
-
