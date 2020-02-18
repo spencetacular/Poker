@@ -15,7 +15,7 @@ function makePlayers() {
 	players[0].dealer = true;
 };
 
-makePlayers();
+// makePlayers();
 // console.log(players);
 
 function bet(p, amount) {
@@ -68,14 +68,14 @@ function newDeck(){
 		}
 
 		deck = shuffle(deck);
-		console.log(deck);
+		// console.log(deck);
 
 	}
 
 	createDeck();
 }
 
-newDeck();
+// newDeck();
 
 
 
@@ -95,42 +95,64 @@ function betBlinds() {
 			break
 		}
 	}
+	// console.log(players);
 }
-betBlinds();
-console.log(players);
-console.log("plot " + pot);
+// betBlinds();
+// console.log("plot " + pot);
 
 
 var communityCards = [];
 
 // for (i=0; i<numPlayers; i++) {
-console.log(deck[1]);
+// console.log(deck[1]);
 
 function dealFlop() {
 	for(i=0; i<3; i++) {
 		communityCards[i] = deck[0];
 		deck.shift();
 	}
-	for(i=0; i<=numPlayers; i++) {
-		// players[i].cards = "test";
+	for(i=0; i<numPlayers; i++) {
+		// players[i].cards[0] = "test";
 		// console.log("player cards " + players[i]);
-		deck.shift();
 		
+		// console.log("Players " + JSON.stringify(players));
+		players[i].cards[0] = deck[0];
+		deck.shift();
+		players[i].cards[1] = deck[0];
+		deck.shift();
+		console.log(players[i].cards);
 	}
-	
+
+
 	
 }
-console.log("**********" + players);
 
-dealFlop();
+function dealTurn() {
+	
+	communityCards[3] = deck[0];
+	deck.shift();
+
+}
+
+function dealRiver() {
+	
+	communityCards[4] = deck[0];
+	deck.shift();
+
+}
+
+
+// console.log("**********" + players);
+
+// dealFlop();
 
 // console.log(deck[0]);
 // console.log(communityCards[1]);
-console.log(communityCards);
-console.log(deck);
-console.log(players);
+// console.log(communityCards);
+// console.log(deck);
+// console.log(players);
 
-console.log("Players " + players);
+// console.log("Players " + players);
 
 // console.log("player cards " + players[0].cards);
 // for(i=0; i<3; i++) {
