@@ -28,6 +28,10 @@ function bet(p, amount) {
 	players[p].chipStack -= amount;
 	pot += amount;
 
+	$('#pot').html(pot);
+	id = "#chip-stack" + p;
+	$(id).html(players[p].chipStack);
+	
 }
 
 
