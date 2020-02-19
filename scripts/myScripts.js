@@ -68,22 +68,18 @@ function newDeck(){
 			var suit="hearts";
 			if (j == 1) { suit="diamonds"}
 			if (j == 2) { suit="clubs"}
-			if (j == 3) { suit="spaids"}
+			if (j == 3) { suit="spades"}
 			fillSuit(suit);
 	
 		}
 
 		deck = shuffle(deck);
-		// console.log(deck);
-
 	}
 
 	createDeck();
 }
 
 // newDeck();
-
-
 
 function betBlinds() {
 	for(i=0; i<numPlayers; i++) {
@@ -103,15 +99,8 @@ function betBlinds() {
 	}
 	// console.log(players);
 }
-// betBlinds();
-// console.log("plot " + pot);
-
 
 var communityCards = [];
-
-// for (i=0; i<numPlayers; i++) {
-// console.log(deck[1]);
-
 
 
 function dealFlop() {
@@ -121,19 +110,11 @@ function dealFlop() {
 		deck.shift();
 
 		var idBase = "#com-card-" + i;
-		var idp = idBase + " p";
-		var idh = idBase + " h4";
+		var idImg = idBase + " img";
+		var imgName = "images/cards/" +communityCards[i].number + "-" + communityCards[i].suit + ".png";
 
-		$(idp).html(communityCards[i].suit);
-		$(idh).html(communityCards[i].number);
 		$(idBase).addClass("show-card");
-
-		if (communityCards[i].suit === "diamonds" || communityCards[i].suit === "hearts"){
-			$(idBase).addClass("red-card");
-			
-		}
-
-		
+		$(idImg).attr("src" , imgName);
 
 	}
 	//deal player cards
@@ -145,39 +126,19 @@ function dealFlop() {
 		deck.shift();
 
 		var idBase1 = "#p" + i + "c1";
-		var idp1 = idBase1 + " p";
-		var idh1 = idBase1 + " h4";
-		$(idp1).html(players[i].cards[0].suit);
-		$(idh1).html(players[i].cards[0].number);
+		var idImg1 = idBase1 + " img";
+		var imgName1 = "images/cards/" + players[i].cards[0].number + "-" + players[i].cards[0].suit + ".png";
 		$(idBase1).addClass("show-card");
+		$(idImg1).attr("src" , imgName1);
 
 		var idBase2 = "#p" + i + "c2";
-		var idp2 = idBase2 + " p";
-		var idh2 = idBase2 + " h4";
-		$(idp2).html(players[i].cards[1].suit);
-		$(idh2).html(players[i].cards[1].number);	
+		var idImg2 = idBase2 + " img";
+		var imgName2 = "images/cards/" + players[i].cards[1].number + "-" + players[i].cards[1].suit + ".png";
 		$(idBase2).addClass("show-card");
-
-		if (players[i].cards[0].suit === "diamonds" || players[i].cards[0].suit === "hearts"){
-			$(idBase1).addClass("red-card");
-		}
-
-		if (players[i].cards[1].suit === "diamonds" || players[i].cards[1].suit === "hearts"){
-			$(idBase2).addClass("red-card");
-		}
-		
-
-
-		console.log(idBase1);
-		console.log(idBase2);
-		// var idp = idBase + " p";
-		// var idh = idBase + " h4";
-		
+		$(idImg2).attr("src" , imgName2);
 
 	}
 
-
-	
 }
 
 function dealTurn() {
@@ -193,23 +154,3 @@ function dealRiver() {
 	deck.shift();
 
 }
-
-
-// console.log("**********" + players);
-
-// dealFlop();
-
-// console.log(deck[0]);
-// console.log(communityCards[1]);
-// console.log(communityCards);
-// console.log(deck);
-// console.log(players);
-
-// console.log("Players " + players);
-
-// console.log("player cards " + players[0].cards);
-// for(i=0; i<3; i++) {
-
-// 	console.log("Commpunity cards " + communityCards[i].suit);
-// 	console.log("Commpunity cards " + communityCards[i].number);
-// }
