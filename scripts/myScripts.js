@@ -1,5 +1,6 @@
 
-var numPlayers = 5;
+var numPlayers = 4;
+var chipStartAmount = 2500;
 var smallBlind = 5;
 var players = [];
 var pot = 0;
@@ -9,8 +10,13 @@ var pot = 0;
 
 function makePlayers() {
 	for (i=0; i<numPlayers; i++) {
-		var p = {chipStack: 2500, folded: false, dealer: false, cards:[] };
+		var p = {chipStack: chipStartAmount, folded: false, dealer: false, cards:[] };
 		players.push(p);
+
+		//set chip stack
+		id = "#cs-" + i + " p";
+		console.log(id);
+		$(id).html(chipStartAmount);
 	}
 	players[0].dealer = true;
 };
@@ -106,21 +112,68 @@ var communityCards = [];
 // for (i=0; i<numPlayers; i++) {
 // console.log(deck[1]);
 
+
+
 function dealFlop() {
+	//deal community cards
 	for(i=0; i<3; i++) {
 		communityCards[i] = deck[0];
 		deck.shift();
-	}
-	for(i=0; i<numPlayers; i++) {
-		// players[i].cards[0] = "test";
-		// console.log("player cards " + players[i]);
+
+		var idBase = "#com-card-" + i;
+		var idp = idBase + " p";
+		var idh = idBase + " h4";
+
+		$(idp).html(communityCards[i].suit);
+		$(idh).html(communityCards[i].number);
+		$(idBase).addClass("show-card");
+
+		if (communityCards[i].suit === "diamonds" || communityCards[i].suit === "hearts"){
+			$(idBase).addClass("red-card");
+			
+		}
+
 		
-		// console.log("Players " + JSON.stringify(players));
+
+	}
+	//deal player cards
+	for(i=0; i<numPlayers; i++) {
+	
 		players[i].cards[0] = deck[0];
 		deck.shift();
 		players[i].cards[1] = deck[0];
 		deck.shift();
-		console.log(players[i].cards);
+
+		var idBase1 = "#p" + i + "c1";
+		var idp1 = idBase1 + " p";
+		var idh1 = idBase1 + " h4";
+		$(idp1).html(players[i].cards[0].suit);
+		$(idh1).html(players[i].cards[0].number);
+		$(idBase1).addClass("show-card");
+
+		var idBase2 = "#p" + i + "c2";
+		var idp2 = idBase2 + " p";
+		var idh2 = idBase2 + " h4";
+		$(idp2).html(players[i].cards[1].suit);
+		$(idh2).html(players[i].cards[1].number);	
+		$(idBase2).addClass("show-card");
+
+		if (players[i].cards[0].suit === "diamonds" || players[i].cards[0].suit === "hearts"){
+			$(idBase1).addClass("red-card");
+		}
+
+		if (players[i].cards[1].suit === "diamonds" || players[i].cards[1].suit === "hearts"){
+			$(idBase2).addClass("red-card");
+		}
+		
+
+
+		console.log(idBase1);
+		console.log(idBase2);
+		// var idp = idBase + " p";
+		// var idh = idBase + " h4";
+		
+
 	}
 
 

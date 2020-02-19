@@ -1,12 +1,24 @@
-console.log("Game !!!!!!!!!!!!");
+$(document).ready(function(){ 
 
-makePlayers();
+    console.log("Game !!!!!!!!!!!!");
 
-newDeck();
+    makePlayers();
 
-betBlinds();
+    newDeck();
 
-// console.log("Players " + JSON.stringify(players));
+    betBlinds();
 
-dealFlop();
+    // console.log("Players " + JSON.stringify(players));
+
+    dealFlop();
+
+
+    // $('p').hide();
+
+    // $("h1").addClass("test");
+
+    // var test = 	$('#com-card-0');
+    // console.log(test);
+
+});
 
