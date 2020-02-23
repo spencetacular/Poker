@@ -6,11 +6,19 @@ var players = [];
 var pot = 0;
 
 
+var playerToBet = 0;
+var currentBet = 0;
+
+console.log("***** pot: " + pot);
+console.log("***** playerToBet: " + playerToBet);
+console.log("***** currentBet: " + currentBet);
+
+
 
 
 function makePlayers() {
 	for (i=0; i<numPlayers; i++) {
-		var p = {chipStack: chipStartAmount, folded: false, dealer: false, cards:[] };
+		var p = {chipStack: chipStartAmount, folded: false, dealer: false, cards:[], bet: 0 };
 		players.push(p);
 
 		//set chip stack
@@ -24,14 +32,38 @@ function makePlayers() {
 // makePlayers();
 // console.log(players);
 
+
+
 function bet(p, amount) {
 	players[p].chipStack -= amount;
-	pot += amount;
+	players[p].bet +=amount;
+	// pot += amount;
 
-	$('#pot').html(pot);
+	// playerToBet ++;
+
+	// if (playerToBet > numPlayers { })
+
+	// $('#pot').html(pot);
+
 	id = "#chip-stack" + p;
+	idBet = "#bet-" +p;
 	$(id).html(players[p].chipStack);
+	$(idBet).html(players[p].bet);
 	
+}
+
+function playerTurn () {
+	// need current bet
+	
+	// check()
+
+	// bet ()
+
+	// raise()
+
+	// fold()
+
+
 }
 
 

@@ -1,7 +1,6 @@
-.test {
-	color: red;
+p {
+	margin: 8px;
 }
-
 
 .container {
 	padding: 50px;
@@ -37,9 +36,6 @@
 .card img {
 	width: 100%;
 }
-.card-img {
-	width: 100%;
-}
 
 .show-card {
 	opacity: 100;
@@ -51,6 +47,7 @@
 .chip-stack {
 	background-color: white;
 	border-radius: 7%;
+	max-width: 100px;
 }
 
 .player-cards-container {
