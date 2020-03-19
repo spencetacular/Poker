@@ -10,5 +10,17 @@ $(document).ready(function(){
 
     dealFlop();
 
+   //test winning hand function.
+   findWinner();
+
+    // getCallAmount(3);
+
+
+
+   
+
+
+    playerTurn(3);
+
 });
 

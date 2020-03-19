@@ -37,13 +37,7 @@ function makePlayers() {
 function bet(p, amount) {
 	players[p].chipStack -= amount;
 	players[p].bet +=amount;
-	// pot += amount;
-
-	// playerToBet ++;
-
-	// if (playerToBet > numPlayers { })
-
-	// $('#pot').html(pot);
+	
 
 	id = "#chip-stack" + p;
 	idBet = "#bet-" +p;
@@ -52,16 +46,131 @@ function bet(p, amount) {
 	
 }
 
-function playerTurn () {
-	// need current bet
+function callAmount(player) {
+	var currentHighBet = 0;
+	for(i=0; i<numPlayers; i++) {
+		if (players[i].bet > currentHighBet) {
+			currentHighBet = players[i].bet;
+		}
+	}
+	console.log("current High Bet: " +currentHighBet );
+
+	var callAmount  = currentHighBet - players[player].bet;
+
+	return callAmount;
+
+	// console.log("call amount: " +callAmount);
+}
+
+
+
+function findWinner() {
+	for(i=0; i<numPlayers; i++) {
+
+		var hand = players[i].cards;
+		
+		//add community cards to hand
+		for (j=0; j<communityCards.length; j++) {
+			hand.push(communityCards[j]);
+		}
+
+
+		//!!!!!!!!!!!! run from the top down instead
+
+		var rank = 0;
+
+		//high card
+
+		// var hightCard = 0;
+
+		var numbers = [];
+		var suites = [];
+
+		for (k=0; k<hand.length; k++) {		
+			numbers.push(hand[k].number);
+			suites.push(hand[k].suit);
+			
+		}
+		numbers.sort(function(a, b){return b-a});
+		//TEST !!!!!!!!!!!!!!!!!!!!
+		numbers = [8,8,7,7,6];
+		console.log("numbers: " + numbers);
+		console.log("suites: " + suites);
+
+		for(l=0; l<hand.length; l++) {
+			var numPairs = 0;
+			if (numbers[l] === numbers[l+1]) {
+				numPairs ++;
+				console.log("Num Pairs!!!!!!!: " + numPairs); 	 
+
+			}
+		}
+
+		if (numbers[0] === numbers[1] && numbers[2] === numbers[3]) {
+			console.log("Two Pair!!!!!!!");
+		}
+
+		if (numbers[0] === numbers[1] && numbers[1] === numbers[2]) {
+			console.log("Three of a kind !!!!!!!");
+		}
+		if (numbers[0] === numbers[1] && numbers[1] === numbers[2] && numbers[2] === numbers[3]) {
+			console.log("Four of a kind !!!!!!!");
+		}
+
+		// full house
+
+
+		//look for pairs
+		// numMatches = 0;
+		// for(x=0; x<numbers.length; x++) {
+		// 	for (var y = x+1; y< numbers.length; y++){
+		// 		if (numbers [x] === numbers [y]){
+		// 			numMatches++;
+		// 			console.log("Pair!!!!!!!")
+		// 			console.log("num matches " + numMatches);
+		// 		}
+		// 	}
+		// }
+
+
+
+
+
+		
+		// console.log("*****************");
+		// console.log("player " + i + " hand");
+		// console.log(hand);
+		// console.log("hight Card: " + hightCard);
+		// console.log("*****************");
+		// communityCards
+
+
+	}
+}
+
+
+
+
+function playerTurn (player) {
+	// if folded skip
+
+	// get call amount
+	var cAmount = callAmount(player);
+	
+	console.log("call amount: " +cAmount);
+	// if call amount == 0 can check
 	
 	// check()
 
-	// bet ()
+
+	// call ()
+	bet(player, cAmount);
 
 	// raise()
 
 	// fold()
+
+	// advance to next player
 
 
 }
