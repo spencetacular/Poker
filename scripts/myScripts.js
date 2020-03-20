@@ -91,59 +91,93 @@ function findWinner() {
 			suites.push(hand[k].suit);
 			
 		}
-		numbers = [5,8,8,8,6,3,2];
+		numbers = [11,8,6,7,5,4,12];
+		//hack !!!! convert them earlier on
+		suites = [0,1,0,0,2,0,0];
 
 
 		numbers.sort(function(a, b){return b-a});
-		//TEST !!!!!!!!!!!!!!!!!!!!
+		suites.sort(function(a, b){return b-a});
 		
 		console.log("numbers: " + numbers);
 		console.log("suites: " + suites);
 
 		var numPairs = 0;
 		var trips = false;
-		for(l=0; l<hand.length; l++) {
+
+
+		flush(suites);
+		straight(numbers); 
+
+		// for(l=0; l<hand.length; l++) {
 			
 
-			if (numbers[l] === numbers[l+1] && numbers[l] === numbers[l+2]  && numbers[l] === numbers[l+3]) {
-				if(rank<7) {rank = 7};
+		// 	if (numbers[l] === numbers[l+1] && numbers[l] === numbers[l+2]  && numbers[l] === numbers[l+3]) {
+		// 		if(rank<7) {rank = 7};
 
-				console.log ("Four of a kind !!!!!!!!!");
+		// 		console.log ("Four of a kind !!!!!!!!!");
 
-				//break
+		// 		//break
 
-			}
-			if (numbers[l] === numbers[l+1] && numbers[l] === numbers[l+2]){
-				console.log ("Three of a kind !!!!!!!!!!");
-				trips = true;
-				if(numPairs == 1) {
-					numPairs = 0;
-				}
-				if(rank<3) {rank = 3};
-				console.log("trips: " + trips);
-			} 
+		// 	}
+		// 	if (numbers[l] === numbers[l+1] && numbers[l] === numbers[l+2]){
+		// 		console.log ("Three of a kind !!!!!!!!!!");
+		// 		trips = true;
+		// 		if(rank<3) {rank = 3};
+		// 		console.log("trips: " + trips);
+		// 	} 
 
-			if (numbers[l] === numbers[l+1]) {
-				console.log ("Pair!!!!!!");
-				numPairs ++;
+		// 	if (numbers[l] === numbers[l+1]) {
+		// 		console.log ("Pair!!!!!!");
+		// 		numPairs ++;
 
-				if(rank<1) {rank = 1};
-				console.log(" @@@@@@@@@@@ numPairs: " + numPairs);
+		// 		if(rank<1) {rank = 1};
+		// 		console.log(" @@@@@@@@@@@ numPairs: " + numPairs);
 
-				if (trips === true) {
+		// 		if (trips === true) {
 					
-					if(rank<6) {rank = 6};
-					console.log("Full boat!!!!!!!!");
-				}
-				if (numPairs >=2) {
-					if(rank<2) {rank = 2};
-					console.log("Two Pair *****************");
-				}
-			}
-		}
+		// 			if(rank<6) {rank = 6};
+		// 			console.log("Full boat!!!!!!!!");
+		// 		}
+		// 		if (numPairs >=2) {
+		// 			if(rank<2) {rank = 2};
+		// 			console.log("Two Pair *****************");
+		// 		}
+		// 	}
+		// }
 
 		console.log("Rank: " + rank);
 
+	}
+}
+
+
+function flush (h) {
+	for( i=0; i<h.length; i++) {
+		if(h[i] === h[i+1] && h[i] === h[i+2] && h[i] === h[i+2] && h[i] === h[i+3] && h[i] === h[i+4] ) {
+			console.log(" ^^^^^^^^^^^^^^^ Flush ^^^^^^^^^^^^^^^^");
+		}
+	}
+}
+
+function straight (h) {
+
+	// console.log("%%%%%%%%%%%%%%%%%%");
+
+	
+	
+	for( i=0; i<h.length; i++) {
+		
+		// console.log("h1 " + h[i]);
+		// console.log("h2 -1 " + (h[i] -1));
+
+		if((h[i] -1) === h[i+1]  
+			&&  (h[i] -2 ) === h[i+2]
+			&&  (h[i] -3 ) === h[i+3]
+			&&  (h[i] -4 ) === h[i+4]
+			) {
+			console.log(" &&&&&&&&&&&& Stright &&&&&&&&&&&");
+		}
 	}
 }
 
