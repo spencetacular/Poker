@@ -91,59 +91,58 @@ function findWinner() {
 			suites.push(hand[k].suit);
 			
 		}
+		numbers = [5,8,8,8,6,3,2];
+
+
 		numbers.sort(function(a, b){return b-a});
 		//TEST !!!!!!!!!!!!!!!!!!!!
-		numbers = [8,8,7,7,6];
+		
 		console.log("numbers: " + numbers);
 		console.log("suites: " + suites);
 
+		var numPairs = 0;
+		var trips = false;
 		for(l=0; l<hand.length; l++) {
-			var numPairs = 0;
-			if (numbers[l] === numbers[l+1]) {
-				numPairs ++;
-				console.log("Num Pairs!!!!!!!: " + numPairs); 	 
+			
 
+			if (numbers[l] === numbers[l+1] && numbers[l] === numbers[l+2]  && numbers[l] === numbers[l+3]) {
+				if(rank<7) {rank = 7};
+
+				console.log ("Four of a kind !!!!!!!!!");
+
+				//break
+
+			}
+			if (numbers[l] === numbers[l+1] && numbers[l] === numbers[l+2]){
+				console.log ("Three of a kind !!!!!!!!!!");
+				trips = true;
+				if(numPairs == 1) {
+					numPairs = 0;
+				}
+				if(rank<3) {rank = 3};
+				console.log("trips: " + trips);
+			} 
+
+			if (numbers[l] === numbers[l+1]) {
+				console.log ("Pair!!!!!!");
+				numPairs ++;
+
+				if(rank<1) {rank = 1};
+				console.log(" @@@@@@@@@@@ numPairs: " + numPairs);
+
+				if (trips === true) {
+					
+					if(rank<6) {rank = 6};
+					console.log("Full boat!!!!!!!!");
+				}
+				if (numPairs >=2) {
+					if(rank<2) {rank = 2};
+					console.log("Two Pair *****************");
+				}
 			}
 		}
 
-		if (numbers[0] === numbers[1] && numbers[2] === numbers[3]) {
-			console.log("Two Pair!!!!!!!");
-		}
-
-		if (numbers[0] === numbers[1] && numbers[1] === numbers[2]) {
-			console.log("Three of a kind !!!!!!!");
-		}
-		if (numbers[0] === numbers[1] && numbers[1] === numbers[2] && numbers[2] === numbers[3]) {
-			console.log("Four of a kind !!!!!!!");
-		}
-
-		// full house
-
-
-		//look for pairs
-		// numMatches = 0;
-		// for(x=0; x<numbers.length; x++) {
-		// 	for (var y = x+1; y< numbers.length; y++){
-		// 		if (numbers [x] === numbers [y]){
-		// 			numMatches++;
-		// 			console.log("Pair!!!!!!!")
-		// 			console.log("num matches " + numMatches);
-		// 		}
-		// 	}
-		// }
-
-
-
-
-
-		
-		// console.log("*****************");
-		// console.log("player " + i + " hand");
-		// console.log(hand);
-		// console.log("hight Card: " + hightCard);
-		// console.log("*****************");
-		// communityCards
-
+		console.log("Rank: " + rank);
 
 	}
 }
